@@ -1,11 +1,16 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router";
 import "./App.css";
 
 import { projects } from "./data/projects";
-import Hero from "./components/Hero";
-import FilterButtons from "./components/FilterButtons";
-import ProjectList from "./components/ProjectList";
-import SearchBox from "./components/SearchBox";
+
+import Layout from "./components/Layout";
+
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 function App() {
     const [selectedCategory, setSelectedCategory] = useState("all");
@@ -38,26 +43,35 @@ function App() {
     });
 
     return (
-        <main className="app">
-            <Hero totalProjects={projects.length} />
+        <Routes>
+            <Route element={<Layout />}>
+                <Route
+                    path="/"
+                    element={<Home totalProjects={projects.length} />}
+                />
 
-            <SearchBox
-                searchTerm={searchTerm}
-                onSearchChange={handleSearchChange}
-                onClearSearch={handleClearSearch}
-            />
+                <Route
+                    path="/projects"
+                    element={
+                        <Projects
+                            searchTerm={searchTerm}
+                            onSearchChange={handleSearchChange}
+                            onClearSearch={handleClearSearch}
+                            selectedCategory={selectedCategory}
+                            onCategoryChange={handleCategoryChange}
+                            filteredProjects={filteredProjects}
+                            totalProjects={projects.length}
+                        />
+                    }
+                />
 
-            <FilterButtons
-                selectedCategory={selectedCategory}
-                onCategoryChange={handleCategoryChange}
-            />
+                <Route path="/about" element={<About />} />
 
-            <p className="results-count">
-                Showing {filteredProjects.length} of {projects.length} projects
-            </p>
+                <Route path="/contact" element={<Contact />} />
 
-            <ProjectList projects={filteredProjects} />
-        </main>
+                <Route path="*" element={<NotFound />} />
+            </Route>
+        </Routes>
     );
 }
 
