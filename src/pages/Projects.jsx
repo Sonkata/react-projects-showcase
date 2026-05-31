@@ -9,7 +9,11 @@ function Projects({
     selectedCategory,
     onCategoryChange,
     filteredProjects,
-    totalProjects
+    totalProjects,
+    savedProjectIds,
+    savedProjectsCount,
+    onToggleSaveProject,
+    onClearSavedProjects
 }) {
     return (
         <section className="page-section">
@@ -17,7 +21,7 @@ function Projects({
 
             <p className="page-description">
                 Browse my completed front-end projects. Use the search and filters
-                to find projects by technology or category.
+                to find projects by technology, category or saved status.
             </p>
 
             <SearchBox
@@ -29,13 +33,34 @@ function Projects({
             <FilterButtons
                 selectedCategory={selectedCategory}
                 onCategoryChange={onCategoryChange}
+                savedProjectsCount={savedProjectsCount}
             />
 
-            <p className="results-count">
-                Showing {filteredProjects.length} of {totalProjects} projects
-            </p>
+            <div className="projects-meta">
+                <p className="results-count">
+                    Showing {filteredProjects.length} of {totalProjects} projects
+                </p>
 
-            <ProjectList projects={filteredProjects} />
+                <p className="saved-count">
+                    Saved projects: {savedProjectsCount}
+                </p>
+            </div>
+
+            {savedProjectsCount > 0 && (
+                <button
+                    type="button"
+                    className="clear-saved-btn"
+                    onClick={onClearSavedProjects}
+                >
+                    Clear Saved Projects
+                </button>
+            )}
+
+            <ProjectList
+                projects={filteredProjects}
+                savedProjectIds={savedProjectIds}
+                onToggleSaveProject={onToggleSaveProject}
+            />
         </section>
     );
 }

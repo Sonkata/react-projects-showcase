@@ -1,10 +1,15 @@
+import { Link } from "react-router";
+
 function ProjectCard({
+    id,
     title,
     category,
     description,
     technologies,
     liveUrl,
-    githubUrl
+    githubUrl,
+    isSaved,
+    onToggleSave
 }) {
     const categoryLabels = {
         "html-css": "HTML / CSS",
@@ -38,7 +43,19 @@ function ProjectCard({
                 ))}
             </div>
 
+            <button
+                type="button"
+                className={isSaved ? "save-project-btn saved" : "save-project-btn"}
+                onClick={() => onToggleSave(id)}
+            >
+                {isSaved ? "Saved" : "Save Project"}
+            </button>
+
             <div className="project-links">
+                <Link to={`/projects/${id}`}>
+                    Details
+                </Link>
+
                 <a href={liveUrl} target="_blank" rel="noreferrer">
                     Live Demo
                 </a>

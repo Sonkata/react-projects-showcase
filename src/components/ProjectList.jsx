@@ -1,6 +1,6 @@
 import ProjectCard from "./ProjectCard";
 
-function ProjectList({ projects }) {
+function ProjectList({ projects, savedProjectIds, onToggleSaveProject }) {
     if (projects.length === 0) {
         return (
             <div className="empty-state">
@@ -15,12 +15,15 @@ function ProjectList({ projects }) {
             {projects.map((project) => (
                 <ProjectCard
                     key={project.id}
+                    id={project.id}
                     title={project.title}
                     category={project.category}
                     description={project.description}
                     technologies={project.technologies}
                     liveUrl={project.liveUrl}
                     githubUrl={project.githubUrl}
+                    isSaved={savedProjectIds.includes(project.id)}
+                    onToggleSave={onToggleSaveProject}
                 />
             ))}
         </section>
