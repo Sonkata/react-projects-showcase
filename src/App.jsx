@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router";
 import "./App.css";
-
+import ApiDemo from "./pages/ApiDemo";
 import { projects } from "./data/projects";
 
 import Layout from "./components/Layout";
@@ -68,7 +68,7 @@ function App() {
                 <Route path="/about" element={<About />} />
 
                 <Route path="/contact" element={<Contact />} />
-
+<Route path="/api-demo" element={<ApiDemo />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>

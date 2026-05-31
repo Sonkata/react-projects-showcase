@@ -27,6 +27,9 @@ function Navbar() {
                 <NavLink to="/contact" className={getNavLinkClass}>
                     Contact
                 </NavLink>
+                <NavLink to="/api-demo" className={getNavLinkClass}>
+    API Demo
+</NavLink>
             </div>
         </nav>
     );

@@ -207,12 +207,22 @@ body {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .api-grid {
+    grid-template-columns: repeat(2, 1fr);
 }
+}
+
 
 @media (max-width: 600px) {
     .project-card-top {
     flex-direction: column;
     align-items: flex-start;
+}
+.api-grid {
+    grid-template-columns: 1fr;
+}
+.form-actions {
+    flex-direction: column;
 }
 .home-actions {
     flex-direction: column;
@@ -466,4 +476,159 @@ body {
     font-size: 72px;
     font-weight: bold;
     line-height: 1;
+}
+.api-grid {
+    max-width: 1100px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.api-card {
+    background-color: #1a1a1a;
+    border: 1px solid #2c2c2c;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.api-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff2b2b;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.18);
+}
+
+.api-card h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+    line-height: 1.35;
+}
+
+.api-card p {
+    color: #b5b5b5;
+    line-height: 1.6;
+    font-size: 15px;
+}
+.loading-text {
+    margin-top: 45px;
+    color: #b5b5b5;
+    font-size: 20px;
+}
+
+.api-error {
+    max-width: 520px;
+    margin: 45px auto 0;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border: 1px solid #ff2b2b;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.api-error h2 {
+    margin: 0 0 10px;
+    color: #ff2b2b;
+}
+
+.api-error p {
+    margin: 0;
+    color: #b5b5b5;
+    font-size: 16px;
+}
+.reload-btn {
+    margin-top: 30px;
+    padding: 12px 22px;
+    border: 1px solid #ff2b2b;
+    border-radius: 999px;
+    background-color: #ff2b2b;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.reload-btn:hover {
+    box-shadow: 0 0 18px rgba(255, 0, 0, 0.45);
+}
+
+.api-card-id {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background-color: rgba(255, 43, 43, 0.12);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 43, 43, 0.35);
+    font-size: 12px;
+    font-weight: bold;
+}
+.contact-page {
+    max-width: 760px;
+}
+
+.contact-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #2c2c2c;
+    border-radius: 12px;
+    background-color: #111;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff2b2b;
+    box-shadow: 0 0 18px rgba(255, 0, 0, 0.22);
+}
+
+.field-error {
+    margin: 0;
+    color: #ff6b6b;
+    font-size: 14px;
+}
+
+.success-message {
+    margin: 0;
+    padding: 14px 16px;
+    background-color: rgba(143, 214, 148, 0.12);
+    border: 1px solid rgba(143, 214, 148, 0.4);
+    border-radius: 12px;
+    color: #8fd694;
+    font-size: 15px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
