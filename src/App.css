@@ -214,6 +214,21 @@ body {
     flex-direction: column;
     align-items: flex-start;
 }
+.home-actions {
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-link-btn,
+.secondary-link-btn {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+}
+
+.error-code {
+    font-size: 56px;
+}
 .navbar {
     flex-direction: column;
 }
@@ -401,4 +416,54 @@ body {
     margin: 0;
     color: #b5b5b5;
     font-size: 16px;
+}
+.home-actions {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.page-link-btn,
+.secondary-link-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.page-link-btn {
+    background-color: #ff2b2b;
+    color: white;
+    border: 1px solid #ff2b2b;
+}
+
+.page-link-btn:hover {
+    box-shadow: 0 0 18px rgba(255, 0, 0, 0.45);
+}
+
+.secondary-link-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #444;
+}
+
+.secondary-link-btn:hover {
+    border-color: #ff2b2b;
+    color: #ff6b6b;
+}
+
+.not-found-page {
+    text-align: center;
+}
+
+.error-code {
+    margin: 0 0 10px;
+    color: #ff2b2b;
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 1;
 }
